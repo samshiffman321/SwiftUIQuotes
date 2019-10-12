@@ -10,9 +10,13 @@ import SwiftUI
 
 struct QuoteView: View {
     @ObservedObject var viewModel: QuoteViewModel
-    var quotationMark: some View {
-        Text(",,")
-        .font(.system(size: 45))
+    var openQuote: some View {
+        Image("openQuote")
+        .padding()
+    }
+    var closeQuote: some View {
+        Image("closeQuote")
+        .padding()
     }
     var loadingView: some View {
         ActivityIndicator(isAnimating: $viewModel.loading, style: .large)
@@ -20,10 +24,11 @@ struct QuoteView: View {
     }
     var body: some View {
         VStack {
-            Spacer()g
+            Spacer()
             if viewModel.loading {
                 loadingView
             } else {
+                openQuote
                 Text(viewModel.quote)
                     //current bug in swift UI with line limit nil or 0
                     //setting line limit to 20 so that quote isn't truncated
@@ -31,8 +36,7 @@ struct QuoteView: View {
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .padding()
-                    .overlay(quotationMark, alignment: .topLeading)
-                    .overlay(quotationMark, alignment: .bottomTrailing)
+                closeQuote
                 Text(viewModel.byLine)
             }
             Spacer()
