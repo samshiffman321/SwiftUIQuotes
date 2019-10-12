@@ -9,26 +9,30 @@
 import SwiftUI
 
 struct QuoteView: View {
+    @ObservedObject var viewModel: QuoteViewModel
     var quotationMark: some View {
-        Text("\"")
+        Text(",,")
         .font(.system(size: 45))
     }
     var body: some View {
         VStack {
-            Text(verbatim: "Hello World this is a long quote that lasts multiple lines. it has two sentences and wraps around multiple lines without truncating at all.")
+            Text(viewModel.quote)
                 //current bug in swift UI with line limit nil or 0
+                //setting line limit to 20 so that quote isn't truncated
                 .lineLimit(20)
                 .font(.largeTitle)
                 .multilineTextAlignment(.center)
                 .padding()
                 .overlay(quotationMark, alignment: .topLeading)
                 .overlay(quotationMark, alignment: .bottomTrailing)
-            Text(" - By Author")
+            Text(viewModel.byLine)
             Spacer()
             Button("New Quote",
                    action: {
-                    //TODO: get a new quote
+                    self.viewModel.loadQuote()
             })
+            Toggle("Programming Quotes", isOn: $viewModel.showProgrammingQuotes)
+            .padding()
             
         }
     
@@ -36,7 +40,10 @@ struct QuoteView: View {
 }
 
 struct QuoteView_Previews: PreviewProvider {
+    static var quoteLoader = QuoteGardenClient()
+    static var factory = QuoteFactory()
+    static var testVM = QuoteViewModel(quote: "I've always loved the experience of working together with other people toward an artistic goal.", author: "Trey Anastasio", quoteLoader: quoteLoader, quoteLoaderFactory: factory)
     static var previews: some View {
-        QuoteView()
+        QuoteView(viewModel: testVM)
     }
 }

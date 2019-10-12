@@ -20,7 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = QuoteView()
+        let quoteLoader = QuoteGardenClient()
+        let factory = QuoteFactory()
+        let viewModel = QuoteViewModel(quote: "I've always loved the experience of working together with other people toward an artistic goal.", author: "Trey Anastasio", quoteLoader: quoteLoader, quoteLoaderFactory: factory)
+        let contentView = QuoteView(viewModel: viewModel)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

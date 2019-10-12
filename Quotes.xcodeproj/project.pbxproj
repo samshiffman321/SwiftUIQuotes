@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22305C8F2352241600E87865 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22305C8E2352241600E87865 /* QuoteViewModel.swift */; };
+		22305C9323522C4600E87865 /* QuoteLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22305C9223522C4600E87865 /* QuoteLoader.swift */; };
+		22305C9923522DE300E87865 /* QGQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22305C9823522DE300E87865 /* QGQuote.swift */; };
+		22305C9B23522E1A00E87865 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22305C9A23522E1A00E87865 /* Quote.swift */; };
+		22305C9E23522FF200E87865 /* QuoteGardenClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22305C9D23522FF200E87865 /* QuoteGardenClient.swift */; };
+		22305CA023523A2700E87865 /* ProgrammingQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22305C9F23523A2700E87865 /* ProgrammingQuote.swift */; };
+		22305CA223523AAF00E87865 /* ProgrammingQuoteApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22305CA123523AAF00E87865 /* ProgrammingQuoteApiClient.swift */; };
 		224AE28D235176D1000FB5FA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE28C235176D1000FB5FA /* AppDelegate.swift */; };
 		224AE28F235176D1000FB5FA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE28E235176D1000FB5FA /* SceneDelegate.swift */; };
 		224AE291235176D1000FB5FA /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AE290235176D1000FB5FA /* QuoteView.swift */; };
@@ -16,6 +23,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22305C8E2352241600E87865 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
+		22305C9223522C4600E87865 /* QuoteLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteLoader.swift; sourceTree = "<group>"; };
+		22305C9823522DE300E87865 /* QGQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QGQuote.swift; sourceTree = "<group>"; };
+		22305C9A23522E1A00E87865 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		22305C9D23522FF200E87865 /* QuoteGardenClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteGardenClient.swift; sourceTree = "<group>"; };
+		22305C9F23523A2700E87865 /* ProgrammingQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammingQuote.swift; sourceTree = "<group>"; };
+		22305CA123523AAF00E87865 /* ProgrammingQuoteApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgrammingQuoteApiClient.swift; sourceTree = "<group>"; };
 		224AE289235176D1000FB5FA /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224AE28C235176D1000FB5FA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224AE28E235176D1000FB5FA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +51,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22305C9423522D4D00E87865 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				224AE290235176D1000FB5FA /* QuoteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		22305C9523522D6D00E87865 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				22305C8E2352241600E87865 /* QuoteViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		22305C9623522DA100E87865 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				22305C9C23522FC500E87865 /* Client */,
+				22305C9723522DB000E87865 /* Model */,
+				22305C9223522C4600E87865 /* QuoteLoader.swift */,
+				22305C9A23522E1A00E87865 /* Quote.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		22305C9723522DB000E87865 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22305C9823522DE300E87865 /* QGQuote.swift */,
+				22305C9F23523A2700E87865 /* ProgrammingQuote.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		22305C9C23522FC500E87865 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				22305C9D23522FF200E87865 /* QuoteGardenClient.swift */,
+				22305CA123523AAF00E87865 /* ProgrammingQuoteApiClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		224AE280235176D1000FB5FA = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +117,13 @@
 			children = (
 				224AE28C235176D1000FB5FA /* AppDelegate.swift */,
 				224AE28E235176D1000FB5FA /* SceneDelegate.swift */,
-				224AE290235176D1000FB5FA /* QuoteView.swift */,
+				22305C9423522D4D00E87865 /* View */,
+				22305C9523522D6D00E87865 /* ViewModel */,
 				224AE292235176D4000FB5FA /* Assets.xcassets */,
 				224AE297235176D4000FB5FA /* LaunchScreen.storyboard */,
 				224AE29A235176D4000FB5FA /* Info.plist */,
 				224AE294235176D4000FB5FA /* Preview Content */,
+				22305C9623522DA100E87865 /* Data */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -146,8 +207,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22305C9E23522FF200E87865 /* QuoteGardenClient.swift in Sources */,
+				22305C9323522C4600E87865 /* QuoteLoader.swift in Sources */,
+				22305CA023523A2700E87865 /* ProgrammingQuote.swift in Sources */,
 				224AE28D235176D1000FB5FA /* AppDelegate.swift in Sources */,
+				22305C8F2352241600E87865 /* QuoteViewModel.swift in Sources */,
 				224AE28F235176D1000FB5FA /* SceneDelegate.swift in Sources */,
+				22305CA223523AAF00E87865 /* ProgrammingQuoteApiClient.swift in Sources */,
+				22305C9923522DE300E87865 /* QGQuote.swift in Sources */,
+				22305C9B23522E1A00E87865 /* Quote.swift in Sources */,
 				224AE291235176D1000FB5FA /* QuoteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
