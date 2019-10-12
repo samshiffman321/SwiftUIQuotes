@@ -20,6 +20,7 @@ struct QuoteView: View {
     }
     var body: some View {
         VStack {
+            Spacer()g
             if viewModel.loading {
                 loadingView
             } else {
