@@ -11,6 +11,7 @@ import Foundation
 public class QuoteViewModel: ObservableObject {
     @Published var quote: String
     @Published var byLine: String
+    @Published var loading: Bool
     var quoteLoader: QuoteLoader
     var quoteLoaderFactory: QuoteLoaderFactory
     private var isProgramming: Bool = false
@@ -31,21 +32,24 @@ public class QuoteViewModel: ObservableObject {
         self.byLine = "- \(author)"
         self.quoteLoader = quoteLoader
         self.quoteLoaderFactory = quoteLoaderFactory
+        self.loading = false
     }
     
     func loadQuote() {
+        self.loading = true
         quoteLoader.getRandomQuote { [weak self] result in
             switch result {
             case .success(let quote):
                 DispatchQueue.main.async {
                     let unknown = "Unknown"
-                    
+                    self?.loading = false
                     self?.quote = quote.quote
                     self?.byLine = "- \(quote.author.isEmpty ? unknown : quote.author)"
                 }
                 
             case .failure:
                 DispatchQueue.main.async {
+                    self?.loading = false
                     self?.quote = "Oops! It appears there was an error loading a quote!"
                     self?.byLine = "Sorry!"
                 }

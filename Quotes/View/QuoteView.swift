@@ -14,18 +14,26 @@ struct QuoteView: View {
         Text(",,")
         .font(.system(size: 45))
     }
+    var loadingView: some View {
+        ActivityIndicator(isAnimating: $viewModel.loading, style: .large)
+        .padding()
+    }
     var body: some View {
         VStack {
-            Text(viewModel.quote)
-                //current bug in swift UI with line limit nil or 0
-                //setting line limit to 20 so that quote isn't truncated
-                .lineLimit(20)
-                .font(.largeTitle)
-                .multilineTextAlignment(.center)
-                .padding()
-                .overlay(quotationMark, alignment: .topLeading)
-                .overlay(quotationMark, alignment: .bottomTrailing)
-            Text(viewModel.byLine)
+            if viewModel.loading {
+                loadingView
+            } else {
+                Text(viewModel.quote)
+                    //current bug in swift UI with line limit nil or 0
+                    //setting line limit to 20 so that quote isn't truncated
+                    .lineLimit(20)
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.center)
+                    .padding()
+                    .overlay(quotationMark, alignment: .topLeading)
+                    .overlay(quotationMark, alignment: .bottomTrailing)
+                Text(viewModel.byLine)
+            }
             Spacer()
             Button("New Quote",
                    action: {
