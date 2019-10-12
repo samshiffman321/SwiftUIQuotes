@@ -21,6 +21,7 @@ public class QuoteViewModel: ObservableObject {
         set {
             isProgramming = newValue
             quoteLoader = quoteLoaderFactory.makeQuoteLoader(isProgramming: newValue)
+            loadQuote()
         }
     }
     
